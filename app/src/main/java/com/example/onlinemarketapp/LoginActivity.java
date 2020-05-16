@@ -1,5 +1,6 @@
 package com.example.onlinemarketapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -67,8 +68,10 @@ public class LoginActivity extends AppCompatActivity {
 
                     if(buyerData.getEmail().equals(email)){
                         if (buyerData.getPassword().equals(password)) {
-
                             Toast.makeText(LoginActivity.this, "Logged in successfully", Toast.LENGTH_SHORT).show();
+
+                            Intent intent = new Intent(LoginActivity.this, BrowseActivity.class);
+                            startActivity(intent);
                         }
                     }
                 }
