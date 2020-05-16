@@ -42,7 +42,7 @@ public class RegisterActivity extends AppCompatActivity {
         createAccountButton.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                createAccount()
+                createAccount();
             }
         }));
     }
@@ -77,7 +77,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     }
 
-    private void validateEmail(String name, final String surname, final String email, final String password) {
+    private void validateEmail(final String name, final String surname, final String email, final String password) {
         final DatabaseReference myDatabaseReference;
         myDatabaseReference = FirebaseDatabase.getInstance().getReference();
 

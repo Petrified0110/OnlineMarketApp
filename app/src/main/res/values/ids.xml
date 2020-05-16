@@ -8,4 +8,7 @@
     <item name="register_surname_input" type="id" />
     <item name="register_email_input" type="id" />
     <item name="register_password_input" type="id" />
+    <item name="login_login_button" type="id" />
+    <item name="login_email_input" type="id" />
+    <item name="login_password_input" type="id" />
 </resources>
