@@ -73,6 +73,9 @@ public class LoginActivity extends AppCompatActivity {
                             Intent intent = new Intent(LoginActivity.this, BrowseActivity.class);
                             startActivity(intent);
                         }
+                        else {
+                            Toast.makeText(LoginActivity.this, "Password is incorrect, try again!", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 }
                 else{

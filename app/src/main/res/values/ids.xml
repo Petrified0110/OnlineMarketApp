@@ -11,4 +11,5 @@
     <item name="login_login_button" type="id" />
     <item name="login_email_input" type="id" />
     <item name="login_password_input" type="id" />
+    <item name="browse_logout_button" type="id" />
 </resources>
