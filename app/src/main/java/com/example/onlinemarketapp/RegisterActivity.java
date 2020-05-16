@@ -1,15 +1,16 @@
 package com.example.onlinemarketapp;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -40,6 +41,7 @@ public class RegisterActivity extends AppCompatActivity {
         inputPassword = (EditText) findViewById(R.id.register_password_input);
 
         createAccountButton.setOnClickListener((new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View view) {
                 createAccount();
@@ -47,6 +49,7 @@ public class RegisterActivity extends AppCompatActivity {
         }));
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     private void createAccount() {
         String name = inputName.getText().toString();
         String surname = inputSurname.getText().toString();
@@ -72,12 +75,15 @@ public class RegisterActivity extends AppCompatActivity {
 //            loadingBar.setCanceledOnTouchOutside(false);
 //            loadingBar.show();
 
-            validateEmail(name, surname, email, password);
+            String salt = Encryption.getSalt(10);
+            String encryptedPassword = Encryption.generateSecurePassword(password, salt);
+
+            validateEmail(name, surname, email, encryptedPassword, salt);
         }
 
     }
 
-    private void validateEmail(final String name, final String surname, final String email, final String password) {
+    private void validateEmail(final String name, final String surname, final String email, final String password, final String salt) {
         final DatabaseReference myDatabaseReference;
         myDatabaseReference = FirebaseDatabase.getInstance().getReference();
 
@@ -90,6 +96,7 @@ public class RegisterActivity extends AppCompatActivity {
                     userdataMap.put("name", name);
                     userdataMap.put("surname", surname);
                     userdataMap.put("password", password);
+                    userdataMap.put("salt", salt);
 
                     myDatabaseReference.child("Buyers").child(email).updateChildren(userdataMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override

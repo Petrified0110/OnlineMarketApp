@@ -1,6 +1,7 @@
 package com.example.onlinemarketapp;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.onlinemarketapp.Model.Buyer;
@@ -61,13 +63,17 @@ public class LoginActivity extends AppCompatActivity {
         myDatabaseReference = FirebaseDatabase.getInstance().getReference();
 
         myDatabaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.child("Buyers").child(email).exists()){
                     Buyer buyerData = dataSnapshot.child("Buyers").child(email).getValue(Buyer.class);
 
+                    final String salt = buyerData.getSalt();
+                    final String encryptedPassword = Encryption.generateSecurePassword(password, salt);
+
                     if(buyerData.getEmail().equals(email)){
-                        if (buyerData.getPassword().equals(password)) {
+                        if (Encryption.verifyUserPassword(password, encryptedPassword, salt)) {
                             Toast.makeText(LoginActivity.this, "Logged in successfully", Toast.LENGTH_SHORT).show();
 
                             Intent intent = new Intent(LoginActivity.this, BrowseActivity.class);
