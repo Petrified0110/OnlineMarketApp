@@ -15,13 +15,13 @@ public class BrowseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_browse);
 
-        logoutButton = (Button) findViewById(R.id.browse_logout_button);
-        logoutButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(BrowseActivity.this, MainActivity.class);
-                startActivity(intent);
-            }
-        });
+//        logoutButton = (Button) findViewById(R.id.browse_logout_button);
+//        logoutButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(BrowseActivity.this, MainActivity.class);
+//                startActivity(intent);
+//            }
+//        });
     }
 }
