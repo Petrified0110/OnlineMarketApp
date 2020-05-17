@@ -88,23 +88,15 @@ tools:context=".SellerBrowseActivity">
 
 
 
-    <Button
-        android:id="@+id/category_button"
+    <Spinner
+        android:id="@+id/category_spinner"
         android:layout_width="130dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginTop="2.5dp"
-        android:layout_marginBottom="2.5dp"
         android:layout_height="match_parent"
-        android:background="@drawable/important_buttons"
-        android:textAllCaps="false"
-        android:textSize="14sp"
         android:layout_centerHorizontal="true"
-        android:text="Browse by category"
-        android:textColor="@android:color/white"
-
-        >
-    </Button>
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="2.5dp"
+        android:background="@drawable/spinner_design"
+        />
 
     <Button
         android:id="@+id/my_prod_button"
