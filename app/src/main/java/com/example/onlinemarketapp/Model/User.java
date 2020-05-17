@@ -1,14 +1,24 @@
 package com.example.onlinemarketapp.Model;
 
-public class Buyer {
-    private String name, surname, email, password, salt;
+public class User {
+    private String username, name, surname, email, password;
+    private String userType;
 
-    public Buyer(String name, String surname, String email, String password) {
+    public User(String username, String name, String surname, String email, String password, String userType) {
+        this.username = username;
         this.name = name;
         this.surname = surname;
         this.email = email;
         this.password = password;
-        this.salt = salt;
+        this.userType = userType;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getName() {
@@ -43,11 +53,11 @@ public class Buyer {
         this.password = password;
     }
 
-    public String getSalt() {
-        return salt;
+    public String getUserType() {
+        return userType;
     }
 
-    public void setSalt(String salt) {
-        this.salt = salt;
+    public void setUserType(String userType) {
+        this.userType = userType;
     }
 }

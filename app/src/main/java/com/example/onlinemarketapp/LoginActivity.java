@@ -13,7 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.onlinemarketapp.Model.Buyer;
+import com.example.onlinemarketapp.Model.User;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -22,7 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private EditText inputEmail, inputPassword;
+    private EditText inputUsername, inputPassword;
     private Button loginButton;
 
     @Override
@@ -31,7 +31,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         loginButton = (Button) findViewById(R.id.login_btn);
-        inputEmail = (EditText) findViewById(R.id.login_email_input);
+        inputUsername = (EditText) findViewById(R.id.login_username_input);
         inputPassword = (EditText) findViewById(R.id.login_password_input);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
@@ -43,10 +43,10 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void loginUser() {
-        String email = inputEmail.getText().toString();
+        String username = inputUsername.getText().toString();
         String password = inputPassword.getText().toString();
 
-         if(TextUtils.isEmpty(email)){
+         if(TextUtils.isEmpty(username)){
             Toast.makeText(this, "Please write your email", Toast.LENGTH_SHORT).show();
         }
         else if(TextUtils.isEmpty(password)){
@@ -54,11 +54,11 @@ public class LoginActivity extends AppCompatActivity {
         }
         else{
 
-            login(email, password);
+            login(username, password);
         }
     }
 
-    private void login(final String email, final String password) {
+    private void login(final String username, final String password) {
         final DatabaseReference myDatabaseReference;
         myDatabaseReference = FirebaseDatabase.getInstance().getReference();
 
@@ -66,14 +66,13 @@ public class LoginActivity extends AppCompatActivity {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if(dataSnapshot.child("Buyers").child(email).exists()){
-                    Buyer buyerData = dataSnapshot.child("Buyers").child(email).getValue(Buyer.class);
+                if(dataSnapshot.child("Users").child(username).exists()){
+                    User userData = dataSnapshot.child("Users").child(username).getValue(User.class);
 
-                    final String salt = buyerData.getSalt();
-                    final String encryptedPassword = Encryption.generateSecurePassword(password, salt);
+                    final String psw = userData.getPassword();
 
-                    if(buyerData.getEmail().equals(email)){
-                        if (Encryption.verifyUserPassword(password, encryptedPassword, salt)) {
+                    if(userData.getUsername().equals(username)){
+                        if (psw.equals(password)) {
                             Toast.makeText(LoginActivity.this, "Logged in successfully", Toast.LENGTH_SHORT).show();
 
                             Intent intent = new Intent(LoginActivity.this, BrowseActivity.class);
