@@ -108,6 +108,7 @@ public class LoginActivity extends AppCompatActivity {
                     Users userData = dataSnapshot.child(parentDbName).child(username).getValue(Users.class);
 
                     final String psw = userData.getPassword();
+                    final String usr_type = userData.getUserType();
 
                     if(userData.getUsername().equals(username)){
                         if (psw.equals(password)) {
@@ -121,11 +122,20 @@ public class LoginActivity extends AppCompatActivity {
                             }
                             else if (parentDbName.equals("Users"))
                             {
-                                Toast.makeText(LoginActivity.this, "logged in Successfully...", Toast.LENGTH_SHORT).show();
-                                loadingBar.dismiss();
+                                if(usr_type.equals("buyer")) {
+                                    Toast.makeText(LoginActivity.this, "Buyer logged in Successfully...", Toast.LENGTH_SHORT).show();
+                                    loadingBar.dismiss();
 
-                                Intent intent = new Intent(LoginActivity.this, BrowseActivity.class);
-                                startActivity(intent);
+                                    Intent intent = new Intent(LoginActivity.this, BrowseActivity.class);
+                                    startActivity(intent);
+                                }
+                                else if(usr_type.equals("seller")){
+                                    Toast.makeText(LoginActivity.this, "Seller logged in Successfully...", Toast.LENGTH_SHORT).show();
+                                    loadingBar.dismiss();
+
+                                    Intent intent = new Intent(LoginActivity.this, SellerBrowseActivity.class);
+                                    startActivity(intent);
+                                }
                             }
                         }
                         else {
