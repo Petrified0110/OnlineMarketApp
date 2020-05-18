@@ -47,9 +47,6 @@ public class SellerBrowseActivity extends AppCompatActivity {
             }
         });
 
-        System.out.println(Prevalent.currentOnlineUser.getUsername());
-        Toast.makeText(this, Prevalent.currentOnlineUser.getUsername(), Toast.LENGTH_SHORT).show();
-
         logoutButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent intent = new Intent(SellerBrowseActivity.this, MainActivity.class);

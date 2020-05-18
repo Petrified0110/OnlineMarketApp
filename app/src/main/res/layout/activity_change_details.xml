@@ -1,9 +1,221 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ChangeDetailsActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <RelativeLayout
+        android:id="@+id/linear_layout_1"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:orientation="horizontal"
+        >
+
+        <ImageView
+            android:id="@+id/login_applogo"
+            android:layout_width="130dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/applogo"
+            android:layout_centerHorizontal="true"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@id/linear_layout_1"
+        >
+
+        <TextView
+            android:id="@+id/first_name_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textSize="19sp"
+            android:text="First name"
+            android:textAlignment="center"
+            android:textColor="@color/colorText"
+            android:textStyle="bold"
+            >
+        </TextView>
+        <EditText
+            android:id="@+id/first_name_output"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_below="@id/first_name_text"
+            android:textSize="19sp"
+            android:padding="10dp"
+            android:hint="Change first name"
+            android:textAlignment="center"
+            android:background="@drawable/input_design"
+            >
+        </EditText>
+
+        <TextView
+            android:id="@+id/surname_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/first_name_output"
+            android:textSize="19sp"
+            android:text="Surname"
+            android:textAlignment="center"
+            android:textColor="@color/colorText"
+            android:textStyle="bold"
+            >
+        </TextView>
+        <EditText
+            android:id="@+id/surname_output"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_below="@id/surname_text"
+            android:textSize="19sp"
+            android:padding="10dp"
+            android:hint="Change surname"
+            android:textAlignment="center"
+            android:textColor="@color/colorText"
+            android:background="@drawable/input_design"
+            >
+        </EditText>
+
+        <TextView
+            android:id="@+id/phone_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/surname_output"
+            android:textSize="19sp"
+            android:text="Phone number"
+            android:textAlignment="center"
+            android:textColor="@color/colorText"
+            android:textStyle="bold"
+            >
+        </TextView>
+
+        <EditText
+            android:id="@+id/phone_output"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_below="@id/phone_text"
+            android:textSize="19sp"
+            android:padding="10dp"
+            android:hint="Change phone number"
+            android:textAlignment="center"
+            android:textColor="@color/colorText"
+            android:background="@drawable/input_design"
+            >
+        </EditText>
+
+        <TextView
+            android:id="@+id/email_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/phone_output"
+            android:textSize="19sp"
+            android:text="Email"
+            android:textAlignment="center"
+            android:textColor="@color/colorText"
+            android:textStyle="bold"
+            >
+        </TextView>
+
+        <EditText
+            android:id="@+id/email_output"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_below="@id/email_text"
+            android:textSize="19sp"
+            android:padding="10dp"
+            android:hint="Change email"
+            android:textAlignment="center"
+            android:textColor="@color/colorText"
+            android:background="@drawable/input_design"
+            >
+        </EditText>
+
+        <TextView
+            android:id="@+id/address_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/email_output"
+            android:textSize="19sp"
+            android:text="Address"
+            android:textAlignment="center"
+            android:textColor="@color/colorText"
+            android:textStyle="bold"
+            >
+        </TextView>
+        <EditText
+            android:id="@+id/address_output"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_below="@id/address_text"
+            android:textSize="19sp"
+            android:padding="10dp"
+            android:hint="Change address"
+            android:textAlignment="center"
+            android:textColor="@color/colorText"
+            android:background="@drawable/input_design"
+            >
+        </EditText>
+
+        <Button
+            android:id="@+id/change_details_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/buttons"
+            android:layout_below="@id/address_output"
+            android:text="Apply changes"
+            android:padding="20dp"
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            android:textColor="@android:color/white"
+            >
+        </Button>
+
+        <Button
+            android:id="@+id/cancel_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/important_buttons"
+            android:layout_below="@id/change_details_button"
+            android:text="Cancel"
+            android:padding="20dp"
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            android:textColor="@android:color/white"
+            >
+        </Button>
+    </RelativeLayout>
+
+</RelativeLayout>
