@@ -12,6 +12,8 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.onlinemarketapp.Prevalent.Prevalent;
+
 public class SellerBrowseActivity extends AppCompatActivity {
 
     private Button logoutButton, accountButton, addProductButton, myProductsButton;
@@ -44,6 +46,9 @@ public class SellerBrowseActivity extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
+
+        System.out.println(Prevalent.currentOnlineUser.getUsername());
+        Toast.makeText(this, Prevalent.currentOnlineUser.getUsername(), Toast.LENGTH_SHORT).show();
 
         logoutButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
