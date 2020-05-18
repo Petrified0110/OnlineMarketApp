@@ -89,21 +89,38 @@
         />
 
     <EditText
-        android:id="@+id/prod_description_input"
+        android:id="@+id/phone_no_input"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/prod_name_input"
         android:background="@drawable/input_design"
         android:padding="12dp"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:hint="Product description"
-        android:inputType="text"
+        android:hint="Phone number"
+        android:inputType="phone"
         android:textColor="@color/colorPrimaryDark"
         android:textColorHint="@color/colorPrimaryDark"
         android:textSize="19sp"
-        android:autofillHints="e-mail" />
+        />
+
+    <EditText
+        android:id="@+id/prod_description_input"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_below="@+id/phone_no_input"
+        android:background="@drawable/input_design"
+        android:padding="12dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:hint="Product description"
+        android:inputType="textMultiLine"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHint="@color/colorPrimaryDark"
+        android:textSize="19sp"
+        />
 
     <Spinner
         android:id="@+id/category_spinner"

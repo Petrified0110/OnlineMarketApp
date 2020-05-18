@@ -3,7 +3,7 @@ package com.example.onlinemarketapp.Model;
 public class Product {
 
     private String name, description, category, seller;
-    private float price;
+    private String price;
     private boolean pending;
 
     public boolean isPending() {
@@ -46,11 +46,11 @@ public class Product {
         this.seller = seller;
     }
 
-    public float getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 }
