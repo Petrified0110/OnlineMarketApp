@@ -126,7 +126,6 @@ public class ApproveProductsActivity extends AppCompatActivity {
                         .setQuery(ProductsRef, Products.class)
                         .build();
 
-
         FirebaseRecyclerAdapter<Products, ProductViewHolder> adapter = new FirebaseRecyclerAdapter<Products, ProductViewHolder>(options) {
 
 
